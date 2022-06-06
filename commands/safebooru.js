@@ -2,6 +2,7 @@ const Booru = require('booru');
 module.exports = { //each command is wrapped in module.exports object
     command : "anime", //for name of the command
     description: "Получить красивую аниме картинку по тегам (SFW)", //for help
+    usage:"[Теги через пробел]",
     /**
     * param for telegraf's syntax without requiring it here.
     * @param {import("telegraf").Context} ctx

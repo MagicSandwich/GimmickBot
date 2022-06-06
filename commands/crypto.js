@@ -2,6 +2,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 module.exports = { //each command is wrapped in module.exports object
     command : "crypto", //for name of the command
     description: "Получить посленюю цену крипты в USDT", //for help
+    usage:"[Код крипты]",
     /**
     * param for telegraf's syntax without requiring it here.
     * @param {import("telegraf").Context} ctx

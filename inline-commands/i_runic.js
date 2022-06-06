@@ -1,17 +1,16 @@
 
 module.exports = { //each command is wrapped in module.exports object
-    command : "runic", //for name of the command
-    description: "Превратить текст в рунический. ᛒᛟᛠ ᛠᚣᛕᛟᛋ ᛒᛟᛠ", //for help
-    usage:"[Текст]",
+    type: 'article',  // It's a voice file.
+    id: 0,    // We reflect the same ID of the request back.
+    title: `runic`,    // Message appearing in tooltip.
+    description: 'runify text',
     /**
     * param for telegraf's syntax without requiring it here.
     * @param {import("telegraf").Context} ctx
     */
-    run: async (ctx) => { //main function
-        let args = ctx.update.message.text.split(' ').slice(1)
-        if(args.length==0){return ctx.reply(module.exports.description)}
-        function strReplace(startstr){
-            let NewStr = startstr.replace(/а/gi, "ᚣ");
+    run:(query) => { //main function
+        
+            let NewStr = query.replace(/а/gi, "ᚣ");
             NewStr = NewStr.replace(/б/gi, "ƃ");
             NewStr = NewStr.replace(/в/gi, "ᛒ");
             NewStr = NewStr.replace(/г/gi, "ᛚ");
@@ -72,8 +71,7 @@ module.exports = { //each command is wrapped in module.exports object
             NewStr = NewStr.replace(/z/gi, "ᛇ");
     
             
-            return NewStr;
-        }
-        ctx.reply(strReplace(args.join(' ')));
+            return NewStr.toString();
+        
     },
 }
