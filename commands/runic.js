@@ -8,8 +8,11 @@ module.exports = { //each command is wrapped in module.exports object
     * @param {import("telegraf").Context} ctx
     */
     run: async (ctx) => { //main function
-        let args = ctx.update.message.text.split(' ').slice(1)
-        if(args.length==0){return ctx.reply(module.exports.description)}
+        
+        
+        let args = ctx.update.message.text.split(' ')
+        if(args.join()=="/runic"){ctx.scene.enter('runic'); return;}
+        //if(ctx.update.message.text.split(' ')[0]==`/runic`){ args = ctx.update.message.text.split(' ')}
         function strReplace(startstr){
             let NewStr = startstr.replace(/а/gi, "ᚣ");
             NewStr = NewStr.replace(/б/gi, "ƃ");

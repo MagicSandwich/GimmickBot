@@ -7,6 +7,6 @@ module.exports = { //each command is wrapped in module.exports object
     * @param {import("telegraf").Context} ctx
     */
     run: async (ctx) => { //main function
-        ctx.reply("Жду фоточку. А хотя знаешь? Можешь и без комманды отправлять фото. Вот.");
+        ctx.scene.enter('drain')
     },
 }

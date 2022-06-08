@@ -1,11 +1,18 @@
-const { Telegraf } = require('telegraf')
+const { Telegraf , Scenes, session } = require('telegraf')
+const { enter, leave } = Scenes.Stage
 const path = require('path')
 const fs = require('fs')
-const config = require('./BOTCONFIG.js')
+const config = require('./BOTCONFIG.JS')
 const token = config.token;
 const bot = new Telegraf(token);
 
 let commands = []
+let scenes = [];
+
+if (token === undefined) {
+  throw new Error('BOT_TOKEN must be provided!')
+}
+
 
 bot.start((ctx) => ctx.reply(config.startText))
 
@@ -27,11 +34,9 @@ function LoadCommands() {
         console.log("Command Loaded: " + file.split(".")[0]); 
         });
     });
+    
   }
 
-
-const drain = require('./on/photo.js')
-bot.on(drain.on,(ctx)=> drain.run(ctx,bot.telegram))
 
 
 bot.help((ctx) => {
@@ -104,6 +109,15 @@ bot.on('inline_query',async (ctx) => {
 },1500)
 })
 
+
+const DrainScene = require('./scenes/DrainScene.js')
+const RunicScene = require('./scenes/RunicScene.js')
+
+const stage = new Scenes.Stage([DrainScene,RunicScene], {
+  ttl: 69,
+})
+bot.use(session())
+bot.use(stage.middleware())
 bot.launch()
 console.log("Logged in!")
 // Enable graceful stop

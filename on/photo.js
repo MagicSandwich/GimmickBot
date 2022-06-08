@@ -7,9 +7,9 @@ module.exports = {
     * @param {import("telegraf").Context} ctx
     * @param {import("telegraf").Telegraf} bot
     */
-    run: async (cctx,bottg) => { //main function
+    run: async (cctx) => { //main function
         let photos = cctx.update.message.photo
-        bottg.getFileLink(photos.pop().file_id).then(async(url) => { 
+        cctx.telegram.getFileLink(photos.pop().file_id).then(async(url) => { 
           let img = await Canvas.loadImage(url.href)
           let les = await Canvas.loadImage(`./images/drain/dr${Math.floor(Math.random() * 15)+1}.png`);
           const canvas = Canvas.createCanvas(img.width, img.height);
