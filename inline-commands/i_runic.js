@@ -4,6 +4,7 @@ module.exports = { //each command is wrapped in module.exports object
     id: 0,    // We reflect the same ID of the request back.
     title: `runic`,    // Message appearing in tooltip.
     description: 'runify text',
+    thumb:'https://2ch.hk/b/arch/2021-05-31/thumb/247831109/16224488720050s.jpg',
     /**
     * param for telegraf's syntax without requiring it here.
     * @param {import("telegraf").Context} ctx

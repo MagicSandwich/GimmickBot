@@ -53,7 +53,7 @@ const i_safebooru = require('./inline-commands/i_safebooru.js');
 const i_nuzhdik = require('./inline-commands/i_nuzhdik.js');
 const i_nft = require('./inline-commands/i_nft.js');
 const i_grepper = require('./inline-commands/i_grepper.js');
-
+const i_pasta = require('./inline-commands/i_pasta.js');
 
 bot.on('inline_query',async (ctx) => {
   let query = ctx.update.inline_query.query;
@@ -66,31 +66,39 @@ bot.on('inline_query',async (ctx) => {
   ctx.answerInlineQuery([
     {
       type: i_safebooru.type,  
-      id: 43,    
+      id: 1,    
       title: i_safebooru.title,    
       description: i_safebooru.description,
       photo_url: booru,
-      thumb_url:'https://imag.malavida.com/mvimgbig/download-s/safebooru-24432-0.jpg'
+      thumb_url:i_safebooru.thumb,
     },
     {
       type: i_runic.type,  
       id: 2,    
       title: i_runic.title,    
       description: i_runic.description,
-      thumb_url:'https://2ch.hk/b/arch/2021-05-31/thumb/247831109/16224488720050s.jpg',
+      thumb_url:i_runic.thumb,
       input_message_content: {message_text: i_runic.run(query)}
     },
     {
-      type: i_nuzhdik.type,  
+      type: i_pasta.type,  
       id:3,    
+      title: i_pasta.title,    
+      description: i_pasta.description,
+      thumb_url:i_pasta.thumb,
+      input_message_content: {message_text: i_pasta.run(query)}
+    },
+    {
+      type: i_nuzhdik.type,  
+      id:4,    
       title: i_nuzhdik.title,    
       description: i_nuzhdik.description,
-      thumb_url:'https://sticker-collection.com/stickers/plain/HypeRjuman/ffeb9857-40b5-43e9-884a-665e9967a4dafile_235464.webp',
+      thumb_url:i_nuzhdik.thumb,
       input_message_content: {message_text: i_nuzhdik.run(query)}
     },
     {
       type: i_nft.type,  
-      id: 4,    
+      id: 5,    
       photo_url: i_nft.run(query),
       thumb_url:i_nft.run(query),
       title: i_nft.title,    
@@ -99,10 +107,10 @@ bot.on('inline_query',async (ctx) => {
     },
     {
       type: i_grepper.type,  
-      id:5,    
+      id:6,    
       title: i_grepper.title,    
       description: i_grepper.description,
-      thumb_url:'https://sticker-collection.com/stickers/plain/HypeRjuman/ffeb9857-40b5-43e9-884a-665e9967a4dafile_235464.webp',
+      thumb_url:i_grepper.thumb,
       input_message_content: {message_text: grep , parse_mode: "MarkdownV2"}
     },
   ], {cache_time: 0});
