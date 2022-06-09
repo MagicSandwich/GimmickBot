@@ -7,7 +7,6 @@ const token = config.token;
 const bot = new Telegraf(token);
 
 let commands = []
-let scenes = [];
 
 if (token === undefined) {
   throw new Error('BOT_TOKEN must be provided!')
