@@ -3,9 +3,10 @@ const { enter, leave } = Scenes.Stage
 const path = require('path')
 const fs = require('fs')
 const config = require('./BOTCONFIG.JS')
-const token = config.token;
+const token = process.env.TOKEN || config.token;
 const bot = new Telegraf(token);
 const port = process.env.PORT || 5000;
+
 
 let commands = []
 
