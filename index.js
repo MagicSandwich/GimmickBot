@@ -5,7 +5,7 @@ const fs = require('fs')
 const config = require('./BOTCONFIG.JS')
 const token = process.env.TOKEN || config.token;
 const bot = new Telegraf(token);
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000; //heroku stuff
 
 
 let commands = []
@@ -31,7 +31,7 @@ function LoadCommands() {
                 ", Reason: File didn't had run/name/desciption"
             );
         bot.command(cmd.command,(ctx)=>{cmd.run(ctx)}) //load command from exports
-        commands.push({ "command": cmd.command, "description": cmd.description , "usage":cmd.usage});
+        commands.push({ "command": cmd.command, "description": cmd.description , "usage":cmd.usage}); //array for /help
         console.log("Command Loaded: " + file.split(".")[0]); 
         });
     });
@@ -49,6 +49,8 @@ bot.help((ctx) => {
 })
 LoadCommands()
 
+
+//INLINE QUERY SEQUENCE
 const i_runic = require('./inline-commands/i_runic.js');
 const i_safebooru = require('./inline-commands/i_safebooru.js');
 const i_nuzhdik = require('./inline-commands/i_nuzhdik.js');
@@ -63,7 +65,7 @@ bot.on('inline_query',async (ctx) => {
   booru = await i_safebooru.run(query)
   grep = await i_grepper.run(query)
 
-  setTimeout(() => {
+  setTimeout(() => {//TIMEOUT FOR EVERYTHING TO WORK OUT
   ctx.answerInlineQuery([
     {
       type: i_safebooru.type,  
@@ -117,8 +119,10 @@ bot.on('inline_query',async (ctx) => {
   ], {cache_time: 0});
 },1500)
 })
+//INLINE QUERY END
 
 
+//SCENES SEQUENCE
 const DrainScene = require('./scenes/DrainScene.js')
 const RunicScene = require('./scenes/RunicScene.js')
 
@@ -127,6 +131,7 @@ const stage = new Scenes.Stage([DrainScene,RunicScene], {
 })
 bot.use(session())
 bot.use(stage.middleware())
+//END SCENES 
 bot.launch()
 console.log("Logged in!")
 // Enable graceful stop

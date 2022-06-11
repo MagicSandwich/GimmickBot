@@ -27,3 +27,5 @@ Use `/help` for displaying all available commands.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+# EVERYTHING IS IN RUSSIAN LOLOLOLOLOLOL
