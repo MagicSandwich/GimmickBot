@@ -34,11 +34,8 @@ function LoadCommands() {
         commands.push({ "command": cmd.command, "description": cmd.description , "usage":cmd.usage}); //array for /help
         console.log("Command Loaded: " + file.split(".")[0]); 
         });
-    });
-    
-  }
-
-
+    });    
+}
 
 bot.help((ctx) => {
     let str = "Команды этого МОЩНОГО БОТА:\n"
