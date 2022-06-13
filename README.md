@@ -2,6 +2,10 @@
 ![reposize](https://img.shields.io/github/repo-size/MagicSandwich/GimmickBot?style=for-the-badge)
 ![codesize](https://img.shields.io/github/languages/code-size/MagicSandwich/GimmickBot?style=for-the-badge)
 
+![JS](https://img.shields.io/badge/JS-JavaScript-orange)
+
+![bababooey](https://img.shields.io/badge/Baba-Booey-red)
+
 
 # Links
 
