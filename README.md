@@ -8,6 +8,7 @@
 # Links
 
 [Bot](https://t.me/Gimmicks_Bot)
+
 [Source](https://github.com/MagicSandwich/GimmickBot)
 
 # Installation
