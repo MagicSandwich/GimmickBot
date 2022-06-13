@@ -1,4 +1,12 @@
 # Gimmicks Bot - bot full of stuff you wouldn't code yourself!
+![reposize](https://img.shields.io/github/repo-size/MagicSandwich/GimmickBot?style=for-the-badge)
+![codesize](https://img.shields.io/github/languages/code-size/MagicSandwich/GimmickBot?style=for-the-badge)
+
+
+# Links
+
+[Bot](https://t.me/Gimmicks_Bot)
+[Source](https://github.com/MagicSandwich/GimmickBot)
 
 # Installation
 
